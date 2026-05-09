@@ -1,15 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { LamarCursor } from "@/components/LamarCursor";
-import { NetflixIntro } from "@/components/NetflixIntro";
-import lamarTunnel from "@/assets/lamar-tunnel.png";
-import lamarSmoke from "@/assets/lamar-smoke.png";
-import lamarPoint from "@/assets/lamar-point.png";
-import lamarRun from "@/assets/lamar-run.gif";
+import { LamarSite } from "@/components/LamarSite";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: LamarSite,
   head: () => ({
     meta: [
       { title: "LAMAR JACKSON — The Franchise" },
