@@ -1,4 +1,4 @@
-import { r as reactExports, V as jsxRuntimeExports } from "./server-BISEaKBW.js";
+import { r as reactExports, V as jsxRuntimeExports } from "./server-EbukxUG4.js";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
@@ -15271,71 +15271,75 @@ function OutroScene() {
   const embersRef = reactExports.useRef(null);
   reactExports.useEffect(() => {
     if (!containerRef.current || !textRef.current) return;
-    gsapWithCSS.fromTo(
-      containerRef.current,
-      {
-        backgroundColor: "#000",
-        opacity: 0
-      },
-      {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",
-          end: "center center",
-          scrub: 1,
-          markers: false
+    const ctx = gsapWithCSS.context(() => {
+      gsapWithCSS.fromTo(
+        containerRef.current,
+        {
+          backgroundColor: "#000",
+          opacity: 0
+        },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+            end: "center center",
+            scrub: 1,
+            markers: false
+          }
         }
+      );
+      const words = textRef.current?.querySelectorAll(".outro-word");
+      if (words) {
+        gsapWithCSS.fromTo(
+          words,
+          {
+            opacity: 0,
+            y: 50,
+            letterSpacing: "0.5em"
+          },
+          {
+            opacity: 1,
+            y: 0,
+            letterSpacing: "0.1em",
+            duration: 1,
+            stagger: 0.3,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: textRef.current,
+              start: "top center+=100px",
+              markers: false
+            }
+          }
+        );
       }
-    );
-    const words = textRef.current.querySelectorAll(".outro-word");
-    gsapWithCSS.fromTo(
-      words,
-      {
-        opacity: 0,
-        y: 50,
-        letterSpacing: "0.5em"
-      },
-      {
-        opacity: 1,
-        y: 0,
-        letterSpacing: "0.1em",
-        duration: 1,
-        stagger: 0.3,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: "top center+=100px",
-          markers: false
-        }
-      }
-    );
-    gsapWithCSS.to(textRef.current, {
-      textShadow: [
-        "0 0 20px var(--ravens-purple-glow)",
-        "0 0 60px var(--ravens-purple-glow), 0 0 100px var(--ravens-gold)",
-        "0 0 20px var(--ravens-purple-glow)"
-      ],
-      duration: 2,
-      repeat: -1,
-      ease: "sine.inOut"
-    });
-    if (embersRef.current) {
-      const embers = embersRef.current.querySelectorAll(".ember");
-      embers.forEach((ember, i) => {
-        gsapWithCSS.to(ember, {
-          y: "-100vh",
-          x: Math.random() * 100 - 50,
-          opacity: 0,
-          duration: 8 + Math.random() * 4,
-          repeat: -1,
-          ease: "none",
-          delay: i * 0.5
-        });
+      gsapWithCSS.to(textRef.current, {
+        textShadow: [
+          "0 0 20px var(--ravens-purple-glow)",
+          "0 0 60px var(--ravens-purple-glow), 0 0 100px var(--ravens-gold)",
+          "0 0 20px var(--ravens-purple-glow)"
+        ],
+        duration: 2,
+        repeat: -1,
+        ease: "sine.inOut"
       });
-    }
+      if (embersRef.current) {
+        const embers = embersRef.current.querySelectorAll(".ember");
+        embers.forEach((ember, i) => {
+          gsapWithCSS.to(ember, {
+            y: "-100vh",
+            x: Math.random() * 100 - 50,
+            opacity: 0,
+            duration: 8 + Math.random() * 4,
+            repeat: -1,
+            ease: "none",
+            delay: i * 0.5
+          });
+        });
+      }
+    }, containerRef);
     return () => {
-      gsapWithCSS.getTimeline().forEach((t2) => t2.kill());
+      ctx.revert();
     };
   }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
