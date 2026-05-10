@@ -1,4 +1,4 @@
-import { r as reactExports, V as jsxRuntimeExports } from "./server-BJwf3PX_.js";
+import { r as reactExports, V as jsxRuntimeExports } from "./server-J2tHNtGb.js";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
@@ -14867,194 +14867,122 @@ function HighlightCards({ activeCategory = "ALL" }) {
     }
   );
 }
+const lamarLeft = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
+const lamarRight = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
 gsapWithCSS.registerPlugin(ScrollTrigger);
 function SpeedMeterCinematic() {
   const containerRef = reactExports.useRef(null);
-  const gaugeRef = reactExports.useRef(null);
-  const needleRef = reactExports.useRef(null);
-  const speedTextRef = reactExports.useRef(null);
-  const flameRef = reactExports.useRef(null);
-  const [maxReached, setMaxReached] = reactExports.useState(false);
+  const leftImageRef = reactExports.useRef(null);
+  const rightImageRef = reactExports.useRef(null);
   reactExports.useEffect(() => {
-    if (!containerRef.current || !needleRef.current) return;
-    try {
-      const tl = gsapWithCSS.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          markers: false,
-          onUpdate: (self) => {
-            if (self.progress >= 0.95 && !maxReached) {
-              setMaxReached(true);
-              if (flameRef.current) {
-                gsapWithCSS.fromTo(
-                  flameRef.current,
-                  { scale: 0, opacity: 1 },
-                  { scale: 2, opacity: 0, duration: 0.8, ease: "back.out" }
-                );
-              }
-            }
+    if (!containerRef.current) return;
+    const ctx = gsapWithCSS.context(() => {
+      gsapWithCSS.fromTo(
+        leftImageRef.current,
+        { x: -220, opacity: 0, rotate: -12, scale: 0.96 },
+        {
+          x: 0,
+          opacity: 1,
+          rotate: -2,
+          scale: 1,
+          duration: 1.4,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: leftImageRef.current,
+            start: "top 85%",
+            end: "top 55%",
+            scrub: false,
+            markers: false
           }
         }
-      });
-      tl.fromTo(
-        needleRef.current,
-        { rotate: -110 },
-        { rotate: 24, duration: 1 },
-        0
       );
-      if (speedTextRef.current) {
-        const textObj = { value: 0 };
-        tl.fromTo(
-          textObj,
-          { value: 0 },
-          {
-            value: 21.01,
-            duration: 1,
-            onUpdate: () => {
-              if (speedTextRef.current) {
-                speedTextRef.current.textContent = textObj.value.toFixed(2);
-              }
-            }
-          },
-          0
-        );
-      }
-      return () => {
-        tl.kill();
-      };
-    } catch (error) {
-      console.warn("SpeedMeter animation error:", error);
-    }
-  }, [maxReached]);
+      gsapWithCSS.fromTo(
+        rightImageRef.current,
+        { x: 220, opacity: 0, rotate: 12, scale: 0.96 },
+        {
+          x: 0,
+          opacity: 1,
+          rotate: 2,
+          scale: 1,
+          duration: 1.4,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: rightImageRef.current,
+            start: "top 85%",
+            end: "top 55%",
+            scrub: false,
+            markers: false
+          }
+        }
+      );
+    }, containerRef);
+    return () => {
+      ctx.revert();
+    };
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       ref: containerRef,
       className: "relative min-h-[100vh] overflow-hidden flex items-center justify-center bg-black px-6 py-24",
       style: {
-        background: "radial-gradient(circle at top, rgba(98,43,255,0.18), transparent 55%), #000"
+        background: "radial-gradient(circle at top, rgba(98,43,255,0.16), transparent 45%), #000"
       },
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "div",
           {
-            ref: flameRef,
             className: "absolute inset-0 pointer-events-none",
             style: {
-              background: "radial-gradient(circle at center, oklch(0.85 0.28 30 / 0.8), oklch(0.42 0.18 300 / 0.4), transparent 60%)",
-              filter: "blur(40px)"
+              background: "radial-gradient(circle at center, rgba(168,85,247,0.18), transparent 40%), radial-gradient(circle at bottom right, rgba(124,58,237,0.22), transparent 25%)",
+              filter: "blur(80px)"
             }
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-6xl w-full text-center z-10", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative max-w-7xl w-full z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid gap-8 lg:grid-cols-2 items-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "div",
             {
-              className: "mb-6 uppercase tracking-[0.4em] text-sm text-white/60",
-              style: {
-                animation: "fadeInUp 0.8s ease-out 0.2s both"
-              },
-              children: "Game Speed"
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "h2",
-            {
-              className: "font-black uppercase text-5xl md:text-7xl leading-tight text-white mb-12",
-              style: {
-                textShadow: "0 0 30px var(--ravens-purple-glow)",
-                animation: "fadeInUp 0.8s ease-out 0.4s both"
-              },
+              ref: leftImageRef,
+              className: "relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#08040e]/80 shadow-[0_0_50px_rgba(148,74,255,0.2)]",
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { ref: speedTextRef, children: "0.00" }),
-                " MPH"
-              ]
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center mb-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "svg",
-            {
-              width: "400",
-              height: "300",
-              viewBox: "0 0 400 300",
-              ref: gaugeRef,
-              style: {
-                filter: "drop-shadow(0 0 40px var(--ravens-purple-glow))"
-              },
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "200", cy: "200", r: "150", fill: "none", stroke: "var(--ravens-purple)", strokeWidth: "2", opacity: "0.5" }),
-                [...Array(11)].map((_, i) => {
-                  const angle = (-110 + i * 134 / 10) * (Math.PI / 180);
-                  const x1 = 200 + 140 * Math.cos(angle);
-                  const y1 = 200 + 140 * Math.sin(angle);
-                  const x2 = 200 + 160 * Math.cos(angle);
-                  const y2 = 200 + 160 * Math.sin(angle);
-                  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "line",
-                    {
-                      x1,
-                      y1,
-                      x2,
-                      y2,
-                      stroke: "var(--ravens-gold)",
-                      strokeWidth: "2",
-                      opacity: i % 2 === 0 ? 1 : 0.5
-                    },
-                    i
-                  );
-                }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("defs", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("linearGradient", { id: "needleGradient", x1: "0%", y1: "0%", x2: "0%", y2: "100%", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("stop", { offset: "0%", stopColor: "var(--ravens-gold)" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("stop", { offset: "100%", stopColor: "var(--ravens-purple-glow)" })
-                ] }) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "line",
+                  "img",
                   {
-                    ref: needleRef,
-                    x1: "200",
-                    y1: "200",
-                    x2: "200",
-                    y2: "70",
-                    stroke: "url(#needleGradient)",
-                    strokeWidth: "4",
-                    strokeLinecap: "round",
+                    src: lamarLeft,
+                    alt: "Lamar Jackson cinematic left",
+                    className: "w-full h-full object-cover",
                     style: {
-                      transformOrigin: "200px 200px",
-                      transform: "rotate(-110deg)",
-                      filter: "drop-shadow(0 0 10px var(--ravens-gold))"
+                      filter: "drop-shadow(0 0 45px rgba(168,85,247,0.35))"
                     }
                   }
                 ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("circle", { cx: "200", cy: "200", r: "12", fill: "var(--ravens-gold)" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 rounded-[2rem] ring-2 ring-purple-400/20" })
               ]
             }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "div",
             {
-              className: "text-sm uppercase tracking-widest text-white/60 animate-pulse",
-              style: {
-                animation: "fadeInUp 0.8s ease-out 0.6s both"
-              },
-              children: "Scroll to accelerate"
+              ref: rightImageRef,
+              className: "relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#08040e]/80 shadow-[0_0_50px_rgba(148,74,255,0.2)]",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "img",
+                  {
+                    src: lamarRight,
+                    alt: "Lamar Jackson cinematic right",
+                    className: "w-full h-full object-cover",
+                    style: {
+                      filter: "drop-shadow(0 0 45px rgba(168,85,247,0.35))"
+                    }
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 rounded-[2rem] ring-2 ring-purple-400/20" })
+              ]
             }
           )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      ` })
+        ] }) })
       ]
     }
   );
@@ -15816,14 +15744,14 @@ function useLenisScroll() {
   reactExports.useEffect(() => {
     try {
       const lenisInstance = new Lenis({
-        duration: 1.2,
+        duration: 1,
         easing: (t2) => Math.min(1, 1.001 - Math.pow(2, -10 * t2)),
         direction: "vertical",
         gestureDirection: "vertical",
         smooth: true,
         smoothTouch: false,
-        touchMultiplier: 2,
-        wheelMultiplier: 1.3
+        touchMultiplier: 2.2,
+        wheelMultiplier: 2.5
       });
       const raf = (time2) => {
         try {
@@ -16006,11 +15934,56 @@ gsapWithCSS.registerPlugin(ScrollTrigger);
 function LamarSite() {
   const [introDone, setIntroDone] = reactExports.useState(false);
   const [activeCategory, setActiveCategory] = reactExports.useState("ALL");
+  const [autoScroll, setAutoScroll] = reactExports.useState(true);
   const silhouetteRef = reactExports.useRef(null);
+  const autoScrollRef = reactExports.useRef(autoScroll);
   useLenisScroll();
+  reactExports.useEffect(() => {
+    autoScrollRef.current = autoScroll;
+  }, [autoScroll]);
+  reactExports.useEffect(() => {
+    let frameId = null;
+    let lastTime = performance.now();
+    const step = (time2) => {
+      const delta = time2 - lastTime;
+      lastTime = time2;
+      if (!autoScrollRef.current) {
+        frameId = null;
+        return;
+      }
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY < maxScroll) {
+        const distance2 = Math.min(delta * 0.06, maxScroll - window.scrollY);
+        window.scrollBy({ top: distance2, left: 0, behavior: "auto" });
+        frameId = requestAnimationFrame(step);
+      } else {
+        frameId = null;
+      }
+    };
+    if (autoScroll) {
+      frameId = requestAnimationFrame(step);
+    }
+    return () => {
+      if (frameId !== null) {
+        cancelAnimationFrame(frameId);
+      }
+    };
+  }, [autoScroll]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative bg-black text-white overflow-x-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(NetflixIntro, { onDone: () => setIntroDone(true) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(LamarCursor, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => setAutoScroll((current) => !current),
+        className: "fixed right-6 bottom-6 z-50 flex h-16 w-16 items-center justify-center rounded-full border border-purple-400/30 bg-black/85 text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-[0_0_30px_rgba(148,74,255,0.45)] transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400",
+        style: {
+          boxShadow: "0 0 35px rgba(148,74,255,0.35), inset 0 0 14px rgba(124,58,237,0.2)"
+        },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "whitespace-pre-line text-center leading-none", children: autoScroll ? "Auto Scroll" : "Manual Scroll" })
+      }
+    ),
     introDone && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: silhouetteRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeroIntroScene, { onComplete: () => {
       } }) }),
