@@ -24,6 +24,18 @@ export function NetflixIntro({ onDone }: { onDone: () => void }) {
             className="absolute left-0 right-0 top-1/2 h-[2px] bg-[var(--ravens-gold)]"
             style={{ boxShadow: "0 0 30px var(--ravens-gold)" }}
           />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.6, 0, 0.7, 0] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-1/4 top-20 h-24 w-2 rounded-full bg-white/80 shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.5, 0, 0.8, 0] }}
+            transition={{ duration: 2.8, repeat: Infinity, delay: 0.4, ease: "easeInOut" }}
+            className="absolute right-1/4 top-24 h-24 w-2 rounded-full bg-white/80 shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+          />
           <motion.h1
             initial={{ opacity: 0, letterSpacing: "0.5em", scale: 0.7 }}
             animate={{ opacity: [0, 0, 1, 1, 1], letterSpacing: ["0.5em","0.5em","0.2em","0.2em","0.2em"], scale: [0.7,0.7,1,1,1.05] }}

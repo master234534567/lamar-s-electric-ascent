@@ -58,6 +58,7 @@ function Hero() {
   const ySil = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const [bolt, setBolt] = useState(false);
+  const [smokeErrored, setSmokeErrored] = useState(false);
   useEffect(() => {
     const onScroll = () => { if (window.scrollY > 30 && !bolt) setBolt(true); };
     window.addEventListener("scroll", onScroll);
@@ -88,15 +89,22 @@ function Hero() {
 
       <motion.div style={{ y: ySil }} className="relative z-10 flex min-h-screen items-center justify-center">
         <div className="relative">
-          <motion.img
-            src={lamarSmoke}
-            alt="Lamar Jackson silhouette in smoke"
-            className="max-h-[80vh] w-auto"
-            style={{ filter: "drop-shadow(0 0 80px var(--ravens-purple-glow)) contrast(1.2) saturate(1.3)" }}
-            initial={{ scale: 1.2, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.2 }}
-          />
+          {!smokeErrored ? (
+            <motion.img
+              src={lamarSmoke}
+              alt="Lamar Jackson silhouette in smoke"
+              className="max-h-[80vh] w-auto"
+              style={{ filter: "drop-shadow(0 0 80px var(--ravens-purple-glow)) contrast(1.2) saturate(1.3)" }}
+              initial={{ scale: 1.2, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.2 }}
+              onError={() => setSmokeErrored(true)}
+            />
+          ) : (
+            <div className="flex h-[80vh] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-purple-900 via-black to-slate-950 text-white/80">
+              Smoke image unavailable
+            </div>
+          )}
           {/* football */}
           <motion.div
             className="absolute -top-10 -right-10 w-20 h-12 rounded-[50%]"
@@ -129,6 +137,7 @@ function DualThreat() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const x = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const [runErrored, setRunErrored] = useState(false);
   const stats = [
     { k: "PASS YDS", v: "16,689" },
     { k: "RUSH YDS", v: "6,173" },
@@ -141,7 +150,19 @@ function DualThreat() {
       <Streaks count={4} />
       <div className="relative grid lg:grid-cols-2 gap-12 px-8 max-w-7xl mx-auto items-center">
         <motion.div style={{ x }} className="relative">
-          <img src={lamarRun} alt="Lamar running" className="w-full rounded-2xl" style={{ boxShadow: "var(--shadow-glow)", border: "2px solid var(--ravens-gold)" }} />
+          {!runErrored ? (
+            <img
+              src={lamarRun}
+              alt="Lamar running"
+              className="w-full rounded-2xl"
+              style={{ boxShadow: "var(--shadow-glow)", border: "2px solid var(--ravens-gold)" }}
+              onError={() => setRunErrored(true)}
+            />
+          ) : (
+            <div className="flex h-96 w-full items-center justify-center rounded-2xl bg-gradient-to-br from-slate-950 via-purple-950 to-black text-white/70">
+              Running GIF unavailable
+            </div>
+          )}
           <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(45deg, transparent 60%, oklch(0.85 0.18 95 / 0.2))" }} />
         </motion.div>
         <div>
@@ -200,10 +221,23 @@ function SpeedBreaker() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const x = useTransform(scrollYProgress, [0, 1], ["-30%", "100%"]);
   const blur = useTransform(scrollYProgress, [0, 0.5, 1], [0, 8, 0]);
+  const [runErrored, setRunErrored] = useState(false);
   return (
     <section ref={ref} className="relative min-h-screen overflow-hidden bg-black flex items-center">
       <Streaks count={10} />
-      <motion.img src={lamarRun} alt="Lamar sprinting" style={{ x, filter: useTransform(blur, b => `blur(${b}px) drop-shadow(0 0 40px var(--ravens-gold))`) }} className="absolute top-1/2 -translate-y-1/2 h-[60vh] z-10" />
+      {!runErrored ? (
+        <motion.img
+          src={lamarRun}
+          alt="Lamar sprinting"
+          style={{ x, filter: useTransform(blur, b => `blur(${b}px) drop-shadow(0 0 40px var(--ravens-gold))`) }}
+          className="absolute top-1/2 -translate-y-1/2 h-[60vh] z-10"
+          onError={() => setRunErrored(true)}
+        />
+      ) : (
+        <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 h-[60vh] w-[60vw] rounded-3xl bg-gradient-to-br from-purple-950 via-slate-950 to-black border border-white/10 flex items-center justify-center text-white/70">
+          Running content unavailable
+        </div>
+      )}
       <div className="absolute inset-0 flex items-center justify-center z-0">
         <motion.h2 initial={{ opacity: 0, scale: 1.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="font-black uppercase text-center" style={{ fontFamily: "Impact, sans-serif", fontSize: "clamp(3rem, 12vw, 11rem)", lineHeight: 0.85, color: "white", WebkitTextStroke: "2px var(--ravens-gold)", WebkitTextFillColor: "transparent" }}>
           FASTEST<br/>ON THE<br/>FIELD
@@ -219,10 +253,21 @@ function ArmTalent() {
   const scale = useTransform(scrollYProgress, [0, 0.6], [0.2, 6]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 1080]);
   const opacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
+  const [pointErrored, setPointErrored] = useState(false);
   return (
     <section ref={ref} className="relative min-h-[150vh] overflow-hidden bg-black">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <img src={lamarPoint} alt="crowd" className="absolute inset-0 w-full h-full object-cover opacity-30" style={{ filter: "blur(8px) saturate(1.4)" }} />
+        {!pointErrored ? (
+          <img
+            src={lamarPoint}
+            alt="crowd"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            style={{ filter: "blur(8px) saturate(1.4)" }}
+            onError={() => setPointErrored(true)}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-black to-slate-950" />
+        )}
         <div className="absolute inset-0 bg-black/60" />
         <motion.div style={{ scale, rotate, opacity }} className="absolute z-10 w-32 h-20 rounded-[50%]" >
           <div className="w-full h-full rounded-[50%]" style={{ background: "radial-gradient(ellipse at 30% 30%, oklch(0.55 0.18 60), oklch(0.18 0.1 30))", boxShadow: "0 0 60px var(--ravens-gold), inset 0 0 30px black" }} />
@@ -236,13 +281,24 @@ function ArmTalent() {
 }
 
 function Franchise() {
+  const [tunnelErrored, setTunnelErrored] = useState(false);
   return (
     <section className="relative min-h-screen overflow-hidden py-32" style={{ background: "linear-gradient(180deg, black, oklch(0.18 0.12 300), black)" }}>
       <div className="absolute inset-0 noise opacity-50" />
       <Streaks count={3} />
       <div className="relative max-w-6xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, scale: 1.1 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="relative scanlines overflow-hidden rounded-2xl">
-          <img src={lamarTunnel} alt="Lamar tunnel entrance" className="w-full" style={{ filter: "saturate(1.4) contrast(1.2)" }} />
+          {!tunnelErrored ? (
+            <img
+              src={lamarTunnel}
+              alt="Lamar tunnel entrance"
+              className="w-full"
+              style={{ filter: "saturate(1.4) contrast(1.2)" }}
+              onError={() => setTunnelErrored(true)}
+            />
+          ) : (
+            <div className="h-full w-full bg-gradient-to-br from-slate-950 via-purple-950 to-black" />
+          )}
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, transparent 50%, oklch(0.42 0.18 300 / 0.4))" }} />
         </motion.div>
         <div>
