@@ -1,4 +1,4 @@
-import { r as reactExports, V as jsxRuntimeExports } from "./server-NrT7NgvH.js";
+import { r as reactExports, V as jsxRuntimeExports } from "./server-BBfuljKx.js";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
@@ -8769,6 +8769,24 @@ function NetflixIntro({ onDone }) {
             style: { boxShadow: "0 0 30px var(--ravens-gold)" }
           }
         ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: { opacity: 0 },
+            animate: { opacity: [0, 0.6, 0, 0.7, 0] },
+            transition: { duration: 3.2, repeat: Infinity, ease: "easeInOut" },
+            className: "absolute left-1/4 top-20 h-24 w-2 rounded-full bg-white/80 shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: { opacity: 0 },
+            animate: { opacity: [0, 0.5, 0, 0.8, 0] },
+            transition: { duration: 2.8, repeat: Infinity, delay: 0.4, ease: "easeInOut" },
+            className: "absolute right-1/4 top-24 h-24 w-2 rounded-full bg-white/80 shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+          }
+        ),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           motion.h1,
           {
@@ -8807,44 +8825,31 @@ const lamarTunnel = "/assets/lamar-tunnel-XRfyWL7U.png";
 const lamarSmoke = "/assets/lamar-smoke-CwkkcmTn.png";
 const lamarPoint = "/assets/lamar-point-3HBhnCDI.png";
 const lamarRun = "/assets/lamar-run-B1anzzq-.gif";
-function Streaks({
-  count = 6
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 overflow-hidden", children: Array.from({
-    length: count
-  }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "streak", style: {
-    top: `${i * 17 % 100}%`,
-    animationDelay: `${i * 0.25}s`,
-    animationDuration: `${1.2 + i % 3 * 0.4}s`
-  } }, i)) });
+function Streaks({ count = 6 }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 overflow-hidden", children: Array.from({ length: count }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "streak", style: { top: `${i * 17 % 100}%`, animationDelay: `${i * 0.25}s`, animationDuration: `${1.2 + i % 3 * 0.4}s` } }, i)) });
 }
 function Particles() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 overflow-hidden", children: Array.from({
-    length: 40
-  }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute rounded-full", style: {
-    left: `${i * 37 % 100}%`,
-    top: `${i * 53 % 100}%`,
-    width: 2 + i % 4,
-    height: 2 + i % 4,
-    background: i % 3 === 0 ? "var(--ravens-gold)" : "var(--ravens-purple-glow)",
-    boxShadow: "0 0 10px currentColor"
-  }, animate: {
-    y: [0, -40, 0],
-    opacity: [0.2, 1, 0.2]
-  }, transition: {
-    duration: 3 + i % 5,
-    repeat: Infinity,
-    delay: i * 0.1
-  } }, i)) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none absolute inset-0 overflow-hidden", children: Array.from({ length: 40 }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      className: "absolute rounded-full",
+      style: {
+        left: `${i * 37 % 100}%`,
+        top: `${i * 53 % 100}%`,
+        width: 2 + i % 4,
+        height: 2 + i % 4,
+        background: i % 3 === 0 ? "var(--ravens-gold)" : "var(--ravens-purple-glow)",
+        boxShadow: "0 0 10px currentColor"
+      },
+      animate: { y: [0, -40, 0], opacity: [0.2, 1, 0.2] },
+      transition: { duration: 3 + i % 5, repeat: Infinity, delay: i * 0.1 }
+    },
+    i
+  )) });
 }
 function Hero() {
   const ref = reactExports.useRef(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const ySil = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -8857,303 +8862,212 @@ function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [bolt]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref, className: "relative min-h-screen overflow-hidden bg-black", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: {
-      y,
-      opacity
-    }, className: "absolute inset-0", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
-        background: "radial-gradient(ellipse at center top, oklch(0.25 0.18 300 / 0.7), transparent 60%), radial-gradient(ellipse at center, oklch(0.05 0.02 300), black)"
-      } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-x-0 top-0 h-1/2", style: {
-        background: "conic-gradient(from 90deg at 50% 100%, transparent 0deg, oklch(0.62 0.28 300 / 0.4) 30deg, transparent 60deg, transparent 300deg, oklch(0.85 0.18 95 / 0.3) 330deg, transparent 360deg)",
-        filter: "blur(20px)"
-      } })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: { y, opacity }, className: "absolute inset-0", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: { background: "radial-gradient(ellipse at center top, oklch(0.25 0.18 300 / 0.7), transparent 60%), radial-gradient(ellipse at center, oklch(0.05 0.02 300), black)" } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-x-0 top-0 h-1/2", style: { background: "conic-gradient(from 90deg at 50% 100%, transparent 0deg, oklch(0.62 0.28 300 / 0.4) 30deg, transparent 60deg, transparent 300deg, oklch(0.85 0.18 95 / 0.3) 330deg, transparent 360deg)", filter: "blur(20px)" } })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Particles, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 inset-x-0 h-1/2 pointer-events-none", style: {
-      background: "radial-gradient(ellipse at bottom, oklch(0.42 0.18 300 / 0.6), transparent 70%)",
-      filter: "blur(40px)"
-    } }),
-    bolt && /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
-      opacity: 0
-    }, animate: {
-      opacity: [0, 1, 0, 1, 0]
-    }, transition: {
-      duration: 0.8
-    }, className: "absolute inset-0 pointer-events-none", style: {
-      background: "radial-gradient(circle at 30% 40%, oklch(0.85 0.3 300 / 0.8), transparent 50%)"
-    } }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: {
-      y: ySil
-    }, className: "relative z-10 flex min-h-screen items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.img, { src: lamarSmoke, alt: "Lamar Jackson silhouette in smoke", className: "max-h-[80vh] w-auto", style: {
-        filter: "drop-shadow(0 0 80px var(--ravens-purple-glow)) contrast(1.2) saturate(1.3)"
-      }, initial: {
-        scale: 1.2,
-        opacity: 0
-      }, animate: {
-        scale: 1,
-        opacity: 1
-      }, transition: {
-        duration: 1.5,
-        delay: 0.2
-      } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute -top-10 -right-10 w-20 h-12 rounded-[50%]", style: {
-        background: "radial-gradient(ellipse at 30% 30%, oklch(0.55 0.18 60), oklch(0.25 0.12 40))",
-        boxShadow: "0 0 40px var(--ravens-gold)"
-      }, animate: {
-        rotate: 360
-      }, transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "linear"
-      } })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 inset-x-0 h-1/2 pointer-events-none", style: { background: "radial-gradient(ellipse at bottom, oklch(0.42 0.18 300 / 0.6), transparent 70%)", filter: "blur(40px)" } }),
+    bolt && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: [0, 1, 0, 1, 0] },
+        transition: { duration: 0.8 },
+        className: "absolute inset-0 pointer-events-none",
+        style: { background: "radial-gradient(circle at 30% 40%, oklch(0.85 0.3 300 / 0.8), transparent 50%)" }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: { y: ySil }, className: "relative z-10 flex min-h-screen items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.img,
+        {
+          src: lamarSmoke,
+          alt: "Lamar Jackson silhouette in smoke",
+          className: "max-h-[80vh] w-auto",
+          style: { filter: "drop-shadow(0 0 80px var(--ravens-purple-glow)) contrast(1.2) saturate(1.3)" },
+          initial: { scale: 1.2, opacity: 0 },
+          animate: { scale: 1, opacity: 1 },
+          transition: { duration: 1.5, delay: 0.2 }
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        motion.div,
+        {
+          className: "absolute -top-10 -right-10 w-20 h-12 rounded-[50%]",
+          style: { background: "radial-gradient(ellipse at 30% 30%, oklch(0.55 0.18 60), oklch(0.25 0.12 40))", boxShadow: "0 0 40px var(--ravens-gold)" },
+          animate: { rotate: 360 },
+          transition: { duration: 6, repeat: Infinity, ease: "linear" }
+        }
+      )
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-x-0 bottom-20 z-20 text-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h1, { initial: {
-        y: 60,
-        opacity: 0
-      }, animate: {
-        y: 0,
-        opacity: 1
-      }, transition: {
-        delay: 0.8,
-        duration: 0.8
-      }, className: "font-black tracking-tighter text-white", style: {
-        fontFamily: "Impact, 'Arial Black', sans-serif",
-        fontSize: "clamp(3rem, 10vw, 9rem)",
-        lineHeight: 0.85,
-        textShadow: "0 0 40px var(--ravens-purple-glow)"
-      }, children: [
-        "ERA OF ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
-          color: "var(--ravens-gold)"
-        }, children: "EIGHT" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.p, { initial: {
-        opacity: 0
-      }, animate: {
-        opacity: 1
-      }, transition: {
-        delay: 1.4
-      }, className: "mt-4 text-sm uppercase tracking-[0.5em] text-white/60", children: "Scroll · Witness Greatness" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        motion.h1,
+        {
+          initial: { y: 60, opacity: 0 },
+          animate: { y: 0, opacity: 1 },
+          transition: { delay: 0.8, duration: 0.8 },
+          className: "font-black tracking-tighter text-white",
+          style: { fontFamily: "Impact, 'Arial Black', sans-serif", fontSize: "clamp(3rem, 10vw, 9rem)", lineHeight: 0.85, textShadow: "0 0 40px var(--ravens-purple-glow)" },
+          children: [
+            "ERA OF ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "var(--ravens-gold)" }, children: "EIGHT" })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.p, { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { delay: 1.4 }, className: "mt-4 text-sm uppercase tracking-[0.5em] text-white/60", children: "Scroll · Witness Greatness" })
     ] })
   ] });
 }
 function DualThreat() {
   const ref = reactExports.useRef(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const x = useTransform(scrollYProgress, [0, 1], [-100, 100]);
-  const stats = [{
-    k: "PASS YDS",
-    v: "16,689"
-  }, {
-    k: "RUSH YDS",
-    v: "6,173"
-  }, {
-    k: "TOTAL TDs",
-    v: "256"
-  }, {
-    k: "WINS",
-    v: "70+"
-  }];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref, className: "relative min-h-screen overflow-hidden py-32", style: {
-    background: "var(--gradient-hype)"
-  }, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
-      opacity: [0.3, 0.7, 0.3]
-    }, transition: {
-      duration: 3,
-      repeat: Infinity
-    }, className: "absolute inset-0", style: {
-      background: "radial-gradient(circle at 20% 50%, var(--ravens-purple-glow), transparent 50%)"
-    } }),
+  const stats = [
+    { k: "PASS YDS", v: "16,689" },
+    { k: "RUSH YDS", v: "6,173" },
+    { k: "TOTAL TDs", v: "256" },
+    { k: "WINS", v: "70+" }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref, className: "relative min-h-screen overflow-hidden py-32", style: { background: "var(--gradient-hype)" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: { opacity: [0.3, 0.7, 0.3] }, transition: { duration: 3, repeat: Infinity }, className: "absolute inset-0", style: { background: "radial-gradient(circle at 20% 50%, var(--ravens-purple-glow), transparent 50%)" } }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Streaks, { count: 4 }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative grid lg:grid-cols-2 gap-12 px-8 max-w-7xl mx-auto items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: {
-        x
-      }, className: "relative", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarRun, alt: "Lamar running", className: "w-full rounded-2xl", style: {
-          boxShadow: "var(--shadow-glow)",
-          border: "2px solid var(--ravens-gold)"
-        } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 rounded-2xl", style: {
-          background: "linear-gradient(45deg, transparent 60%, oklch(0.85 0.18 95 / 0.2))"
-        } })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: { x }, className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarRun, alt: "Lamar running", className: "w-full rounded-2xl", style: { boxShadow: "var(--shadow-glow)", border: "2px solid var(--ravens-gold)" } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 rounded-2xl", style: { background: "linear-gradient(45deg, transparent 60%, oklch(0.85 0.18 95 / 0.2))" } })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: {
-          x: 100,
-          opacity: 0
-        }, whileInView: {
-          x: 0,
-          opacity: 1
-        }, viewport: {
-          once: true
-        }, className: "font-black uppercase mb-12", style: {
-          fontFamily: "Impact, sans-serif",
-          fontSize: "clamp(3rem, 8vw, 6rem)",
-          lineHeight: 0.9,
-          color: "white",
-          textShadow: "0 0 30px var(--ravens-purple-glow)"
-        }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: { x: 100, opacity: 0 }, whileInView: { x: 0, opacity: 1 }, viewport: { once: true }, className: "font-black uppercase mb-12", style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(3rem, 8vw, 6rem)", lineHeight: 0.9, color: "white", textShadow: "0 0 30px var(--ravens-purple-glow)" }, children: [
           "DUAL",
           /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
-            color: "var(--ravens-gold)"
-          }, children: "THREAT" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "var(--ravens-gold)" }, children: "THREAT" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-6", children: stats.map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
-          x: 200,
-          opacity: 0
-        }, whileInView: {
-          x: 0,
-          opacity: 1
-        }, viewport: {
-          once: true
-        }, transition: {
-          delay: i * 0.15,
-          type: "spring",
-          stiffness: 80
-        }, className: "border-l-4 pl-4", style: {
-          borderColor: "var(--ravens-gold)"
-        }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-6", children: stats.map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: { x: 200, opacity: 0 }, whileInView: { x: 0, opacity: 1 }, viewport: { once: true }, transition: { delay: i * 0.15, type: "spring", stiffness: 80 }, className: "border-l-4 pl-4", style: { borderColor: "var(--ravens-gold)" }, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-widest text-white/60", children: s.k }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-black text-4xl md:text-5xl text-white", style: {
-            fontFamily: "Impact, sans-serif"
-          }, children: s.v })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-black text-4xl md:text-5xl text-white", style: { fontFamily: "Impact, sans-serif" }, children: s.v })
         ] }, s.k)) })
       ] })
     ] })
   ] });
 }
 function MVPSeason() {
-  const items = [{
-    n: "3,678",
-    l: "PASS YDS"
-  }, {
-    n: "1,206",
-    l: "RUSH YDS"
-  }, {
-    n: "36",
-    l: "PASS TDs"
-  }, {
-    n: "100%",
-    l: "MVP"
-  }];
+  const items = [
+    { n: "3,678", l: "PASS YDS" },
+    { n: "1,206", l: "RUSH YDS" },
+    { n: "36", l: "PASS TDs" },
+    { n: "100%", l: "MVP" }
+  ];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative min-h-screen flex items-center justify-center overflow-hidden py-32 bg-black", children: [
-    [0, 1, 2, 3].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute top-0 w-[200px] h-full", style: {
-      left: `${10 + i * 22}%`,
-      background: `linear-gradient(${i % 2 ? 15 : -15}deg, transparent, oklch(0.85 0.18 95 / 0.15), transparent)`,
-      filter: "blur(20px)"
-    }, animate: {
-      opacity: [0.3, 0.9, 0.3]
-    }, transition: {
-      duration: 2 + i * 0.4,
-      repeat: Infinity
-    } }, i)),
-    Array.from({
-      length: 30
-    }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute w-2 h-3", style: {
-      left: `${i * 31 % 100}%`,
-      top: -20,
-      background: i % 2 ? "var(--ravens-gold)" : "var(--ravens-purple-glow)"
-    }, animate: {
-      y: ["0vh", "110vh"],
-      rotate: [0, 720]
-    }, transition: {
-      duration: 6 + i % 4,
-      repeat: Infinity,
-      delay: i * 0.3,
-      ease: "linear"
-    } }, i)),
+    [0, 1, 2, 3].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute top-0 w-[200px] h-full", style: { left: `${10 + i * 22}%`, background: `linear-gradient(${i % 2 ? 15 : -15}deg, transparent, oklch(0.85 0.18 95 / 0.15), transparent)`, filter: "blur(20px)" }, animate: { opacity: [0.3, 0.9, 0.3] }, transition: { duration: 2 + i * 0.4, repeat: Infinity } }, i)),
+    Array.from({ length: 30 }).map((_, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute w-2 h-3", style: { left: `${i * 31 % 100}%`, top: -20, background: i % 2 ? "var(--ravens-gold)" : "var(--ravens-purple-glow)" }, animate: { y: ["0vh", "110vh"], rotate: [0, 720] }, transition: { duration: 6 + i % 4, repeat: Infinity, delay: i * 0.3, ease: "linear" } }, i)),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 text-center px-8", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
-        opacity: 0
-      }, whileInView: {
-        opacity: 1
-      }, viewport: {
-        once: true
-      }, className: "text-sm uppercase tracking-[0.5em] mb-4", style: {
-        color: "var(--ravens-gold)"
-      }, children: "2019 · 2023" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.h2, { initial: {
-        scale: 0.5,
-        opacity: 0
-      }, whileInView: {
-        scale: 1,
-        opacity: 1
-      }, viewport: {
-        once: true
-      }, transition: {
-        type: "spring"
-      }, className: "font-black uppercase mb-16 glow-text", style: {
-        fontFamily: "Impact, sans-serif",
-        fontSize: "clamp(4rem, 14vw, 12rem)",
-        lineHeight: 0.85,
-        color: "var(--ravens-gold)"
-      }, children: "MVP" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-8", children: items.map((it, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
-        scale: 0,
-        rotate: -10
-      }, whileInView: {
-        scale: 1,
-        rotate: 0
-      }, viewport: {
-        once: true
-      }, transition: {
-        delay: i * 0.15,
-        type: "spring",
-        stiffness: 200
-      }, whileHover: {
-        scale: 1.1
-      }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-black text-5xl md:text-6xl text-white", style: {
-          fontFamily: "Impact, sans-serif",
-          textShadow: "0 0 30px var(--ravens-purple-glow)"
-        }, children: it.n }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: { opacity: 0 }, whileInView: { opacity: 1 }, viewport: { once: true }, className: "text-sm uppercase tracking-[0.5em] mb-4", style: { color: "var(--ravens-gold)" }, children: "2019 · 2023" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(motion.h2, { initial: { scale: 0.5, opacity: 0 }, whileInView: { scale: 1, opacity: 1 }, viewport: { once: true }, transition: { type: "spring" }, className: "font-black uppercase mb-16 glow-text", style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(4rem, 14vw, 12rem)", lineHeight: 0.85, color: "var(--ravens-gold)" }, children: "MVP" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-8", children: items.map((it, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: { scale: 0, rotate: -10 }, whileInView: { scale: 1, rotate: 0 }, viewport: { once: true }, transition: { delay: i * 0.15, type: "spring", stiffness: 200 }, whileHover: { scale: 1.1 }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-black text-5xl md:text-6xl text-white", style: { fontFamily: "Impact, sans-serif", textShadow: "0 0 30px var(--ravens-purple-glow)" }, children: it.n }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-widest text-white/60 mt-2", children: it.l })
       ] }, it.l)) })
     ] })
   ] });
 }
+function ThrowSection() {
+  const ref = reactExports.useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const moveX = useTransform(scrollYProgress, [0, 1], [0, 260]);
+  const fade = useTransform(scrollYProgress, [0.2, 0.8], [1, 0]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref, className: "relative min-h-[120vh] overflow-hidden bg-black text-white px-6 py-32", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(98,43,255,0.2),transparent_40%),linear-gradient(180deg,transparent,rgba(0,0,0,0.72))]" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 max-w-6xl mx-auto grid gap-16 lg:grid-cols-[1.1fr_0.9fr] items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.4em] text-white/70", children: "Arm Talent" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-black text-5xl md:text-7xl leading-tight", style: { textShadow: "0 0 40px var(--ravens-purple-glow)" }, children: [
+          "Launch the spiral. ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[var(--ravens-gold)]", children: "Motion blur" }),
+          " writes the pass."
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "max-w-xl text-white/70", children: "A cinematic throw animation blends blur and arc-speed, showing Lamar’s arm strength in a high-stakes highlight." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-black/70 shadow-[0_0_80px_rgba(98,43,255,0.18)]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: { x: moveX, opacity: fade }, transition: { duration: 0.8 }, className: "absolute left-6 top-1/2 h-20 w-20 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.8),rgba(98,43,255,0.4))] blur-2xl" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: { x: moveX, opacity: fade }, transition: { duration: 0.8 }, className: "absolute left-8 top-40 h-24 w-24 rounded-full bg-[rgba(255,255,255,0.05)] blur-3xl" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=60')] bg-cover bg-center opacity-25" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          motion.div,
+          {
+            initial: { x: -260, y: 0, opacity: 0 },
+            whileInView: { x: 40, opacity: 1 },
+            viewport: { once: true },
+            transition: { type: "spring", stiffness: 90, damping: 16, duration: 1.2 },
+            className: "absolute left-0 top-1/2 h-20 w-20 rounded-full bg-white/90 shadow-[0_0_40px_rgba(255,255,255,0.45)]",
+            style: { transform: "translateY(-50%)" }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { className: "absolute left-16 top-[38%] h-[8px] w-32 rounded-full bg-gradient-to-r from-transparent via-white/60 to-transparent blur-sm", animate: { x: [0, 160, 160] }, transition: { duration: 1.2, repeat: Infinity, repeatType: "mirror" } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-x-0 bottom-10 text-center text-xs uppercase tracking-[0.3em] text-white/40", children: "21-yard orbit groove" })
+      ] })
+    ] })
+  ] });
+}
+function CategoryHighlights() {
+  const categories = ["ALL", "SPEED", "ARM TALENT", "AWARDS", "RECORDS", "PLAYOFFS"];
+  const [selected, setSelected] = reactExports.useState("ALL");
+  const [goatMode, setGoatMode] = reactExports.useState(false);
+  const cards = [
+    { title: "Electric Open Field", tagline: "Top speed crushes defenders.", category: "SPEED" },
+    { title: "Laser Spiral", tagline: "Ball placement on the money.", category: "ARM TALENT" },
+    { title: "MVP Aura", tagline: "3× MVP with torch-lit dominance.", category: "AWARDS" },
+    { title: "Record Breaker", tagline: "A season written in franchise history.", category: "RECORDS" },
+    { title: "Playoff Stallion", tagline: "Clutch moments under stadium lights.", category: "PLAYOFFS" },
+    { title: "Dual Threat", tagline: "Pulse, power, and precision.", category: "SPEED" }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(98,43,255,0.16),transparent_55%),#000] px-6 py-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm uppercase tracking-[0.4em] text-white/60", children: "Highlight reel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-3 text-4xl md:text-5xl font-black text-white", style: { textShadow: "0 0 30px var(--ravens-purple-glow)" }, children: "Choose your wavelength." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap gap-3", onMouseEnter: () => setGoatMode(true), onMouseLeave: () => setGoatMode(false), children: categories.map((cat) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          onClick: () => setSelected(cat),
+          className: `filter-button ${selected === cat ? "active" : ""}`,
+          children: cat
+        },
+        cat
+      )) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "grid gap-6 md:grid-cols-2 xl:grid-cols-3", children: cards.filter((card) => selected === "ALL" || card.category === selected).map((card, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 40 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { delay: index * 0.08 },
+        whileHover: { y: -8, scale: 1.02 },
+        className: "highlight-card",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4 inline-flex rounded-full bg-white/5 px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-white/70", children: card.category }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-2xl font-black text-white", style: { textShadow: "0 0 30px var(--ravens-purple-glow)" }, children: card.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-sm text-white/70 leading-relaxed", children: card.tagline })
+        ]
+      },
+      card.title
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `goat-easter ${goatMode ? "visible" : ""}`, children: "GOAT MODE" })
+  ] }) });
+}
 function SpeedBreaker() {
   const ref = reactExports.useRef(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const x = useTransform(scrollYProgress, [0, 1], ["-30%", "100%"]);
   const blur = useTransform(scrollYProgress, [0, 0.5, 1], [0, 8, 0]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref, className: "relative min-h-screen overflow-hidden bg-black flex items-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Streaks, { count: 10 }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.img, { src: lamarRun, alt: "Lamar sprinting", style: {
-      x,
-      filter: useTransform(blur, (b) => `blur(${b}px) drop-shadow(0 0 40px var(--ravens-gold))`)
-    }, className: "absolute top-1/2 -translate-y-1/2 h-[60vh] z-10" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: {
-      opacity: 0,
-      scale: 1.5
-    }, whileInView: {
-      opacity: 1,
-      scale: 1
-    }, viewport: {
-      once: true
-    }, className: "font-black uppercase text-center", style: {
-      fontFamily: "Impact, sans-serif",
-      fontSize: "clamp(3rem, 12vw, 11rem)",
-      lineHeight: 0.85,
-      color: "white",
-      WebkitTextStroke: "2px var(--ravens-gold)",
-      WebkitTextFillColor: "transparent"
-    }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.img, { src: lamarRun, alt: "Lamar sprinting", style: { x, filter: useTransform(blur, (b) => `blur(${b}px) drop-shadow(0 0 40px var(--ravens-gold))`) }, className: "absolute top-1/2 -translate-y-1/2 h-[60vh] z-10" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: { opacity: 0, scale: 1.5 }, whileInView: { opacity: 1, scale: 1 }, viewport: { once: true }, className: "font-black uppercase text-center", style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(3rem, 12vw, 11rem)", lineHeight: 0.85, color: "white", WebkitTextStroke: "2px var(--ravens-gold)", WebkitTextFillColor: "transparent" }, children: [
       "FASTEST",
       /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
       "ON THE",
@@ -9164,116 +9078,38 @@ function SpeedBreaker() {
 }
 function ArmTalent() {
   const ref = reactExports.useRef(null);
-  const {
-    scrollYProgress
-  } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const scale2 = useTransform(scrollYProgress, [0, 0.6], [0.2, 6]);
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, 1080]);
   const opacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { ref, className: "relative min-h-[150vh] overflow-hidden bg-black", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sticky top-0 h-screen flex items-center justify-center overflow-hidden", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarPoint, alt: "crowd", className: "absolute inset-0 w-full h-full object-cover opacity-30", style: {
-      filter: "blur(8px) saturate(1.4)"
-    } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarPoint, alt: "crowd", className: "absolute inset-0 w-full h-full object-cover opacity-30", style: { filter: "blur(8px) saturate(1.4)" } }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-black/60" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: {
-      scale: scale2,
-      rotate: rotate2,
-      opacity
-    }, className: "absolute z-10 w-32 h-20 rounded-[50%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full rounded-[50%]", style: {
-      background: "radial-gradient(ellipse at 30% 30%, oklch(0.55 0.18 60), oklch(0.18 0.1 30))",
-      boxShadow: "0 0 60px var(--ravens-gold), inset 0 0 30px black"
-    } }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: {
-      opacity: 0,
-      y: 50
-    }, whileInView: {
-      opacity: 1,
-      y: 0
-    }, viewport: {
-      once: true
-    }, className: "relative z-20 font-black uppercase text-center", style: {
-      fontFamily: "Impact, sans-serif",
-      fontSize: "clamp(3rem, 10vw, 9rem)",
-      lineHeight: 0.85,
-      color: "white",
-      textShadow: "0 0 40px var(--ravens-purple-glow)"
-    }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: { scale: scale2, rotate: rotate2, opacity }, className: "absolute z-10 w-32 h-20 rounded-[50%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full rounded-[50%]", style: { background: "radial-gradient(ellipse at 30% 30%, oklch(0.55 0.18 60), oklch(0.18 0.1 30))", boxShadow: "0 0 60px var(--ravens-gold), inset 0 0 30px black" } }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: { opacity: 0, y: 50 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "relative z-20 font-black uppercase text-center", style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(3rem, 10vw, 9rem)", lineHeight: 0.85, color: "white", textShadow: "0 0 40px var(--ravens-purple-glow)" }, children: [
       "ARM",
       /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
-        color: "var(--ravens-gold)"
-      }, children: "TALENT" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "var(--ravens-gold)" }, children: "TALENT" })
     ] })
   ] }) });
 }
 function Franchise() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative min-h-screen overflow-hidden py-32", style: {
-    background: "linear-gradient(180deg, black, oklch(0.18 0.12 300), black)"
-  }, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative min-h-screen overflow-hidden py-32", style: { background: "linear-gradient(180deg, black, oklch(0.18 0.12 300), black)" }, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 noise opacity-50" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Streaks, { count: 3 }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative max-w-6xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
-        opacity: 0,
-        scale: 1.1
-      }, whileInView: {
-        opacity: 1,
-        scale: 1
-      }, viewport: {
-        once: true
-      }, transition: {
-        duration: 1.2
-      }, className: "relative scanlines overflow-hidden rounded-2xl", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarTunnel, alt: "Lamar tunnel entrance", className: "w-full", style: {
-          filter: "saturate(1.4) contrast(1.2)"
-        } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
-          background: "linear-gradient(135deg, transparent 50%, oklch(0.42 0.18 300 / 0.4))"
-        } })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: { opacity: 0, scale: 1.1 }, whileInView: { opacity: 1, scale: 1 }, viewport: { once: true }, transition: { duration: 1.2 }, className: "relative scanlines overflow-hidden rounded-2xl", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: lamarTunnel, alt: "Lamar tunnel entrance", className: "w-full", style: { filter: "saturate(1.4) contrast(1.2)" } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: { background: "linear-gradient(135deg, transparent 50%, oklch(0.42 0.18 300 / 0.4))" } })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
-          width: 0
-        }, whileInView: {
-          width: 60
-        }, viewport: {
-          once: true
-        }, className: "h-1 mb-6", style: {
-          background: "var(--ravens-gold)"
-        } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: {
-          y: 60,
-          opacity: 0
-        }, whileInView: {
-          y: 0,
-          opacity: 1
-        }, viewport: {
-          once: true
-        }, className: "font-black uppercase mb-6", style: {
-          fontFamily: "Impact, sans-serif",
-          fontSize: "clamp(3rem, 9vw, 7rem)",
-          lineHeight: 0.85,
-          color: "white"
-        }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: { width: 0 }, whileInView: { width: 60 }, viewport: { once: true }, className: "h-1 mb-6", style: { background: "var(--ravens-gold)" } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: { y: 60, opacity: 0 }, whileInView: { y: 0, opacity: 1 }, viewport: { once: true }, className: "font-black uppercase mb-6", style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(3rem, 9vw, 7rem)", lineHeight: 0.85, color: "white" }, children: [
           "THE",
           /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
-            color: "var(--ravens-gold)",
-            textShadow: "0 0 40px var(--ravens-gold)"
-          }, children: "FRANCHISE" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "var(--ravens-gold)", textShadow: "0 0 40px var(--ravens-gold)" }, children: "FRANCHISE" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.p, { initial: {
-          opacity: 0
-        }, whileInView: {
-          opacity: 1
-        }, viewport: {
-          once: true
-        }, transition: {
-          delay: 0.3
-        }, className: "text-white/70 text-lg max-w-md leading-relaxed", children: "One city. One number. One legacy in motion. Baltimore beats with every snap, every scramble, every spiral. The tunnel opens — and the era continues." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.p, { initial: { opacity: 0 }, whileInView: { opacity: 1 }, viewport: { once: true }, transition: { delay: 0.3 }, className: "text-white/70 text-lg max-w-md leading-relaxed", children: "One city. One number. One legacy in motion. Baltimore beats with every snap, every scramble, every spiral. The tunnel opens — and the era continues." })
       ] })
     ] })
   ] });
@@ -9281,50 +9117,31 @@ function Franchise() {
 function Outro() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative min-h-[60vh] flex items-center justify-center bg-black px-8 py-32 overflow-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Particles, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.h2, { initial: {
-      opacity: 0,
-      scale: 0.7
-    }, whileInView: {
-      opacity: 1,
-      scale: 1
-    }, viewport: {
-      once: true
-    }, transition: {
-      type: "spring",
-      stiffness: 80
-    }, className: "relative z-10 text-center font-black uppercase glow-text", style: {
-      fontFamily: "Impact, sans-serif",
-      fontSize: "clamp(2.5rem, 8vw, 7rem)",
-      lineHeight: 0.9,
-      color: "var(--ravens-gold)"
-    }, children: [
-      "LAMAR JACKSON",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-      "IS THE BESSST"
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
-      opacity: 0
-    }, whileInView: {
-      opacity: 1
-    }, viewport: {
-      once: true
-    }, transition: {
-      delay: 1
-    }, className: "absolute bottom-10 right-10 text-white/50 uppercase tracking-[0.4em] text-sm", children: "— Ben" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.h2,
+      {
+        initial: { opacity: 0, scale: 0.7 },
+        whileInView: { opacity: 1, scale: 1 },
+        viewport: { once: true },
+        transition: { type: "spring", stiffness: 80 },
+        className: "relative z-10 text-center font-black uppercase glow-text",
+        style: { fontFamily: "Impact, sans-serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", lineHeight: 0.9, color: "var(--ravens-gold)" },
+        children: [
+          "LAMAR JACKSON",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+          "IS THE BESSST"
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: { opacity: 0 }, whileInView: { opacity: 1 }, viewport: { once: true }, transition: { delay: 1 }, className: "absolute bottom-10 right-10 text-white/50 uppercase tracking-[0.4em] text-sm", children: "— Ben" })
   ] });
 }
-function Index() {
+function LamarSite() {
   const [introDone, setIntroDone] = reactExports.useState(false);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  useSpring(mx, {
-    stiffness: 50,
-    damping: 20
-  });
-  useSpring(my, {
-    stiffness: 50,
-    damping: 20
-  });
+  useSpring(mx, { stiffness: 50, damping: 20 });
+  useSpring(my, { stiffness: 50, damping: 20 });
   reactExports.useEffect(() => {
     const m = (e) => {
       mx.set((e.clientX / window.innerWidth - 0.5) * 20);
@@ -9336,16 +9153,12 @@ function Index() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative bg-black text-white", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(NetflixIntro, { onDone: () => setIntroDone(true) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(LamarCursor, {}),
-    introDone && /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
-      opacity: 0
-    }, animate: {
-      opacity: 1
-    }, transition: {
-      duration: 0.8
-    }, children: [
+    introDone && /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.8 }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(DualThreat, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(MVPSeason, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryHighlights, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ThrowSection, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SpeedBreaker, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ArmTalent, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Franchise, {}),
@@ -9353,6 +9166,7 @@ function Index() {
     ] })
   ] });
 }
+const SplitComponent = LamarSite;
 export {
-  Index as component
+  SplitComponent as component
 };
