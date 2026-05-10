@@ -1,4 +1,4 @@
-import { r as reactExports, V as jsxRuntimeExports } from "./server-EbukxUG4.js";
+import { r as reactExports, V as jsxRuntimeExports } from "./server-BJwf3PX_.js";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
@@ -15822,7 +15822,8 @@ function useLenisScroll() {
         gestureDirection: "vertical",
         smooth: true,
         smoothTouch: false,
-        touchMultiplier: 2
+        touchMultiplier: 2,
+        wheelMultiplier: 1.3
       });
       const raf = (time2) => {
         try {
