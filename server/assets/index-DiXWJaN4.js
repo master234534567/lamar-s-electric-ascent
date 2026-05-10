@@ -1,4 +1,4 @@
-import { r as reactExports, V as jsxRuntimeExports } from "./server-K8Iptq0H.js";
+import { r as reactExports, V as jsxRuntimeExports } from "./server-BISEaKBW.js";
 import "node:async_hooks";
 import "node:stream/web";
 import "node:stream";
@@ -14877,80 +14877,57 @@ function SpeedMeterCinematic() {
   const [maxReached, setMaxReached] = reactExports.useState(false);
   reactExports.useEffect(() => {
     if (!containerRef.current || !needleRef.current) return;
-    gsapWithCSS.registerEffect({
-      name: "speedUp",
-      effect: (targets, config3) => {
-        return gsapWithCSS.to(targets, {
-          textContent: config3.endValue,
-          duration: config3.duration,
-          snap: { textContent: 1 },
-          ease: "power2.out"
-        });
-      },
-      defaults: { duration: 2.4, endValue: 21 }
-    });
-    const tl = gsapWithCSS.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top center",
-        end: "bottom center",
-        scrub: 1,
-        markers: false,
-        onUpdate: (self) => {
-          if (self.progress >= 0.95 && !maxReached) {
-            setMaxReached(true);
-            if (flameRef.current) {
-              gsapWithCSS.fromTo(
-                flameRef.current,
-                { scale: 0, opacity: 1 },
-                { scale: 2, opacity: 0, duration: 0.8, ease: "back.out" }
-              );
+    try {
+      const tl = gsapWithCSS.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          markers: false,
+          onUpdate: (self) => {
+            if (self.progress >= 0.95 && !maxReached) {
+              setMaxReached(true);
+              if (flameRef.current) {
+                gsapWithCSS.fromTo(
+                  flameRef.current,
+                  { scale: 0, opacity: 1 },
+                  { scale: 2, opacity: 0, duration: 0.8, ease: "back.out" }
+                );
+              }
             }
           }
         }
-      }
-    });
-    tl.fromTo(
-      needleRef.current,
-      { attr: { y1: "50%", y2: "10%", transform: "rotate(-110deg)" } },
-      {
-        attr: { y1: "50%", y2: "10%", rotate: 24 },
-        duration: 1
-      },
-      0
-    );
-    if (speedTextRef.current) {
-      let speedValue = 0;
+      });
       tl.fromTo(
-        speedTextRef.current,
-        { textContent: "0.00" },
-        {
-          textContent: "21.01",
-          duration: 1,
-          snap: { textContent: 0.01 },
-          onUpdate: function() {
-            const target = this.targets()[0];
-            const value = parseFloat(speedValue * 21.01).toFixed(2);
-            target.textContent = value;
-          }
-        },
+        needleRef.current,
+        { rotate: -110 },
+        { rotate: 24, duration: 1 },
         0
       );
-      const updateSpeed = () => {
-        const scrollTrigger = ScrollTrigger.getById(tl.scrollTrigger?.vars.id);
-        if (scrollTrigger) {
-          speedValue = scrollTrigger.progress;
-        }
-      };
-      gsapWithCSS.ticker.add(updateSpeed);
+      if (speedTextRef.current) {
+        const textObj = { value: 0 };
+        tl.fromTo(
+          textObj,
+          { value: 0 },
+          {
+            value: 21.01,
+            duration: 1,
+            onUpdate: () => {
+              if (speedTextRef.current) {
+                speedTextRef.current.textContent = textObj.value.toFixed(2);
+              }
+            }
+          },
+          0
+        );
+      }
       return () => {
-        gsapWithCSS.ticker.remove(updateSpeed);
         tl.kill();
       };
+    } catch (error) {
+      console.warn("SpeedMeter animation error:", error);
     }
-    return () => {
-      tl.kill();
-    };
   }, [maxReached]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
@@ -15046,6 +15023,7 @@ function SpeedMeterCinematic() {
                     strokeLinecap: "round",
                     style: {
                       transformOrigin: "200px 200px",
+                      transform: "rotate(-110deg)",
                       filter: "drop-shadow(0 0 10px var(--ravens-gold))"
                     }
                   }
@@ -15832,51 +15810,71 @@ gsapWithCSS.registerPlugin(ScrollTrigger);
 function useLenisScroll() {
   const [lenis, setLenis] = reactExports.useState(null);
   reactExports.useEffect(() => {
-    const lenisInstance = new Lenis({
-      duration: 1.2,
-      easing: (t2) => Math.min(1, 1.001 - Math.pow(2, -10 * t2)),
-      direction: "vertical",
-      gestureDirection: "vertical",
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2
-    });
-    const raf = (time2) => {
-      lenisInstance.raf(time2);
-      ScrollTrigger.update();
-    };
-    gsapWithCSS.ticker.add(raf);
-    setLenis(lenisInstance);
-    return () => {
-      gsapWithCSS.ticker.remove(raf);
-      lenisInstance.destroy();
-    };
+    try {
+      const lenisInstance = new Lenis({
+        duration: 1.2,
+        easing: (t2) => Math.min(1, 1.001 - Math.pow(2, -10 * t2)),
+        direction: "vertical",
+        gestureDirection: "vertical",
+        smooth: true,
+        smoothTouch: false,
+        touchMultiplier: 2
+      });
+      const raf = (time2) => {
+        try {
+          lenisInstance.raf(time2);
+          ScrollTrigger.update();
+        } catch (e2) {
+          console.warn("Lenis RAF error:", e2);
+        }
+      };
+      gsapWithCSS.ticker.add(raf);
+      setLenis(lenisInstance);
+      return () => {
+        try {
+          gsapWithCSS.ticker.remove(raf);
+          lenisInstance.destroy();
+        } catch (e2) {
+          console.warn("Lenis cleanup error:", e2);
+        }
+      };
+    } catch (error) {
+      console.warn("Lenis initialization failed:", error);
+    }
   }, []);
   return lenis;
 }
 function GoatModeEasterEgg({ silhouetteElement }) {
   const [isActivated, setIsActivated] = reactExports.useState(false);
+  const [position, setPosition] = reactExports.useState({ top: 0, left: 0 });
   const glowRef = reactExports.useRef(null);
   const wingsRef = reactExports.useRef(null);
   const textRef = reactExports.useRef(null);
   reactExports.useEffect(() => {
-    if (!silhouetteElement || !glowRef.current) return;
+    if (!silhouetteElement) return;
     const handleMouseEnter = () => {
       if (isActivated) return;
       setIsActivated(true);
-      gsapWithCSS.fromTo(
-        glowRef.current,
-        {
-          scale: 0,
-          opacity: 1
-        },
-        {
-          scale: 3,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out"
-        }
-      );
+      const rect = silhouetteElement.getBoundingClientRect();
+      setPosition({
+        top: rect.top + rect.height / 2,
+        left: rect.left + rect.width / 2
+      });
+      if (glowRef.current) {
+        gsapWithCSS.fromTo(
+          glowRef.current,
+          {
+            scale: 0,
+            opacity: 1
+          },
+          {
+            scale: 3,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          }
+        );
+      }
       if (wingsRef.current) {
         gsapWithCSS.fromTo(
           wingsRef.current,
@@ -15931,7 +15929,6 @@ function GoatModeEasterEgg({ silhouetteElement }) {
     };
   }, [silhouetteElement, isActivated]);
   if (!silhouetteElement) return null;
-  const rect = silhouetteElement.getBoundingClientRect();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
@@ -15939,8 +15936,8 @@ function GoatModeEasterEgg({ silhouetteElement }) {
         ref: glowRef,
         style: {
           position: "fixed",
-          top: rect.top + rect.height / 2,
-          left: rect.left + rect.width / 2,
+          top: position.top,
+          left: position.left,
           transform: "translate(-50%, -50%)",
           width: "200px",
           height: "200px",
@@ -15958,8 +15955,8 @@ function GoatModeEasterEgg({ silhouetteElement }) {
         ref: wingsRef,
         style: {
           position: "fixed",
-          top: rect.top + rect.height / 2,
-          left: rect.left + rect.width / 2,
+          top: position.top,
+          left: position.left,
           transform: "translate(-50%, -50%)",
           pointerEvents: "none",
           zIndex: 49,
@@ -15978,8 +15975,8 @@ function GoatModeEasterEgg({ silhouetteElement }) {
         ref: textRef,
         style: {
           position: "fixed",
-          top: rect.top + rect.height / 2 + 80,
-          left: rect.left + rect.width / 2,
+          top: position.top + 80,
+          left: position.left,
           transform: "translate(-50%, -50%)",
           pointerEvents: "none",
           zIndex: 48,
