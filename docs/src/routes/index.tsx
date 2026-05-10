@@ -280,6 +280,40 @@ function ArmTalent() {
   );
 }
 
+function LamarPhotos() {
+  const photos = [
+    { img: "./assets/lamar1.jpg", title: "The King", desc: "Lamar Jackson, the undisputed king of Baltimore, commands the field with unmatched authority and electric energy that inspires a city." },
+    { img: "./assets/lamar2.jpg", title: "No.8", desc: "Number 8 embodies the perfect blend of precision passing and explosive rushing that defines greatness in the NFL." },
+    { img: "./assets/lamar3.jpg", title: "Electric", desc: "Pure electricity on the gridiron, Lamar's speed and arm talent light up the stadium like no other quarterback alive." }
+  ];
+  return (
+    <section className="relative py-32 bg-black">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {photos.map((photo, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
+              className="relative group"
+            >
+              <div className="relative overflow-hidden rounded-2xl bg-black/50 backdrop-blur-sm border border-purple-500/20 group-hover:border-purple-400/60 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/20">
+                <img src={photo.img} alt={photo.title} className="w-full h-64 object-cover" />
+                <div className="p-6">
+                  <h3 className="font-bold text-xl text-white mb-2">{photo.title}</h3>
+                  <p className="text-white/70 text-sm">{photo.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Franchise() {
   const [tunnelErrored, setTunnelErrored] = useState(false);
   return (
@@ -363,10 +397,21 @@ function Index() {
           <MVPSeason />
           <SpeedBreaker />
           <ArmTalent />
+          <LamarPhotos />
           <Franchise />
           <Outro />
         </motion.div>
       )}
+      <div className="fixed bottom-8 right-8 z-50">
+        <a href="credits.html" className="inline-block px-6 py-3 rounded-full bg-black/50 backdrop-blur-md border border-purple-500/50 text-white font-bold hover:scale-105 transition-transform hover:shadow-lg hover:shadow-purple-500/20">
+          CREDITS ⚡
+        </a>
+      </div>
+      <div className="fixed bottom-8 left-8 z-50">
+        <a href="backstory.html" className="inline-block px-6 py-3 rounded-full bg-black/50 backdrop-blur-md border border-purple-500/50 text-white font-bold hover:scale-105 transition-transform hover:shadow-lg hover:shadow-purple-500/20">
+          WHO IS HE? 👀
+        </a>
+      </div>
     </div>
   );
 }

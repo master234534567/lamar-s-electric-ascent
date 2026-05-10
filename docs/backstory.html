@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backstory — Lamar Jackson</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        color: #f6efff;
+        background: radial-gradient(circle at top left, rgba(123, 47, 190, 0.22), transparent 22%),
+                    radial-gradient(circle at 80% 10%, rgba(255, 215, 0, 0.14), transparent 14%),
+                    radial-gradient(circle at 20% 80%, rgba(125, 41, 190, 0.16), transparent 18%),
+                    #080113;
+        overflow-x: hidden;
+      }
+      .backstory-shell {
+        position: relative;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      .title-section {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .backstory-title {
+        margin: 0;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+        text-shadow: 0 0 24px rgba(123, 47, 190, 0.8), 0 0 45px rgba(255, 215, 0, 0.18);
+        color: white;
+        font-weight: 900;
+      }
+      .backstory-subtitle {
+        margin: 1.2rem 0 0;
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        color: #dbccff;
+        text-shadow: 0 0 18px rgba(123, 47, 190, 0.25);
+      }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto 4rem;
+      }
+      .fact-card {
+        padding: 2rem;
+        border-radius: 20px;
+        background: rgba(19, 7, 46, 0.88);
+        box-shadow: 0 20px 60px rgba(123, 47, 190, 0.28);
+        border: 1px solid rgba(255, 215, 0, 0.12);
+        transition: all 0.3s ease;
+      }
+      .fact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 80px rgba(123, 47, 190, 0.4);
+        border-color: rgba(255, 215, 0, 0.3);
+      }
+      .fact-title {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffd700;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      }
+      .fact-desc {
+        margin: 0;
+        color: #f6efff;
+        line-height: 1.6;
+      }
+      .reveal-section {
+        text-align: center;
+        margin-top: 4rem;
+      }
+      .reveal-button {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        border-radius: 50px;
+        background: linear-gradient(135deg, rgba(123, 47, 190, 0.96), rgba(255, 215, 0, 0.95));
+        color: #12003e;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 22px 60px rgba(123, 47, 190, 0.28);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        font-size: 1.2rem;
+      }
+      .reveal-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 30px 80px rgba(123, 47, 190, 0.4);
+      }
+      .reveal-text {
+        display: none;
+        margin-top: 2rem;
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 900;
+        color: #ffd700;
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+      .back-button {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem auto 0;
+        padding: 1rem 1.8rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(123, 47, 190, 0.96), rgba(255, 215, 0, 0.95));
+        color: #12003e;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 22px 60px rgba(123, 47, 190, 0.28);
+      }
+      .starfield {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .starfield span {
+        position: absolute;
+        display: block;
+        width: 3px;
+        height: 3px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0.85;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+        animation: twinkle 4s infinite ease-in-out alternate;
+      }
+      .starfield span:nth-child(1) { top: 8%; left: 14%; animation-duration: 3.8s; }
+      .starfield span:nth-child(2) { top: 26%; left: 78%; animation-duration: 4.4s; }
+      .starfield span:nth-child(3) { top: 47%; left: 53%; animation-duration: 3.5s; }
+      .starfield span:nth-child(4) { top: 64%; left: 16%; animation-duration: 4.8s; }
+      .starfield span:nth-child(5) { top: 72%; left: 84%; animation-duration: 3.2s; }
+      .starfield span:nth-child(6) { top: 38%; left: 28%; animation-duration: 4.1s; }
+      .starfield span:nth-child(7) { top: 88%; left: 44%; animation-duration: 3.9s; }
+      .starfield span:nth-child(8) { top: 54%; left: 92%; animation-duration: 4.6s; }
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #ffd700;
+        animation: fall 3s linear infinite;
+      }
+      @keyframes twinkle {
+        0% { opacity: 0.35; transform: translateY(0); }
+        100% { opacity: 1; transform: translateY(-4px); }
+      }
+      @keyframes glow {
+        0% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8); }
+        100% { text-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+      }
+      @keyframes fall {
+        0% { transform: translateY(-100vh) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="backstory-shell">
+      <div class="starfield">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="title-section">
+        <h1 class="backstory-title">THE MAN. THE MYTH. THE LEGEND.</h1>
+        <p class="backstory-subtitle">One man. One obsession. Zero chill.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="fact-card">
+          <h2 class="fact-title">Test Day Drip 📝</h2>
+          <p class="fact-desc">While you're writing your name on the test, this man is drawing Lamar Jackson's helmet. Every. Single. Test. Mrs. B has seen more Ravens logos than an actual Ravens fan.</p>
+        </div>
+        <div class="fact-card">
+          <h2 class="fact-title">Mrs. B's Board 🏆</h2>
+          <p class="fact-desc">You know you're built different when your teacher puts your work on the board. Not because it was the best grade. Because Lamar Jackson was on it.</p>
+        </div>
+        <div class="fact-card">
+          <h2 class="fact-title">Class Comedian 😂</h2>
+          <p class="fact-desc">Teachers come in stressed. They leave laughing. Nobody knows how he does it. The Ravens jersey probably helps. Scientists are still studying this.</p>
+        </div>
+        <div class="fact-card">
+          <h2 class="fact-title">The Catfish King 🎣</h2>
+          <p class="fact-desc">This man looked Mathew dead in the eyes and said 'trust me bro'. Mathew did not, in fact, need to trust him. Legendary move.</p>
+        </div>
+        <div class="fact-card">
+          <h2 class="fact-title">In This Very Room 👁️</h2>
+          <p class="fact-desc">The man. The myth. The Ravens fan. He is currently in the same room as you reading this right now. Look to your left. Look to your right. It's him. It's always been him.</p>
+        </div>
+      </div>
+      <div class="reveal-section">
+        <button class="reveal-button" onclick="revealLegend()">REVEAL THE LEGEND 🏈</button>
+        <div id="reveal-text" class="reveal-text">[STUDENT NAME]</div>
+      </div>
+      <div style="text-align: center;">
+        <a class="back-button" href="index.html">Back to main page</a>
+      </div>
+    </div>
+    <script>
+      function revealLegend() {
+        const revealText = document.getElementById('reveal-text');
+        revealText.style.display = 'block';
+        // Simple confetti effect
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.animationDelay = Math.random() * 3 + 's';
+          confetti.style.background = ['#ffd700', '#7B2FBE', '#fff'][Math.floor(Math.random() * 3)];
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 3000);
+        }
+      }
+    </script>
+  </body>
+</html>
