@@ -282,9 +282,9 @@ function ArmTalent() {
 
 function LamarPhotos() {
   const photos = [
-    { img: "./assets/lamar1.jpg", title: "The King", desc: "Lamar Jackson, the undisputed king of Baltimore, commands the field with unmatched authority and electric energy that inspires a city." },
-    { img: "./assets/lamar2.jpg", title: "No.8", desc: "Number 8 embodies the perfect blend of precision passing and explosive rushing that defines greatness in the NFL." },
-    { img: "./assets/lamar3.jpg", title: "Electric", desc: "Pure electricity on the gridiron, Lamar's speed and arm talent light up the stadium like no other quarterback alive." }
+    { img: "./assets/lamar1.png", title: "The King", desc: "Lamar Jackson, the undisputed king of Baltimore, commands the field with unmatched authority and electric energy that inspires a city." },
+    { img: "./assets/lamar2.png", title: "No.8", desc: "Number 8 embodies the perfect blend of precision passing and explosive rushing that defines greatness in the NFL." },
+    { img: "./assets/lamar3.png", title: "Electric", desc: "Pure electricity on the gridiron, Lamar's speed and arm talent light up the stadium like no other quarterback alive." }
   ];
   return (
     <section className="relative py-32 bg-black">
